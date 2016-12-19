@@ -4,8 +4,10 @@ body {
   font-family: 'Roboto Slab';
 }
 
+/* Top box content */
+
 h1 {
-  font-size:4em;
+  font-size:3em;
   color:#6D6E71;
   padding-bottom:30px;
 }
@@ -21,15 +23,40 @@ span {
   align-items:center
 }
 
-/*.card-section {
-  display:flex;
-  flex:1;
-  background-color: magenta;
-}*/
-
 input {
   display: block;
 }
+
+.title-input {
+  width: 100%;
+}
+
+.body-input {
+  width: 100%
+}
+
+.save-btn {
+  width: 100%;
+  background-color: #00A79D;
+  border: none;
+  color: white;
+}
+
+/* Bottom section content */
+
+.card-section {
+  display: flex;
+  justify-content: center;
+}
+
+.search-input {
+  margin-top: 20px;
+  width: 100%
+}
+
+
+
+
 .idea-card {
   height: 100px;
   width: 100px;
