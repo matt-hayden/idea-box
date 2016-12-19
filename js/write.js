@@ -7,12 +7,12 @@ function newIdea(){
   var $bodyInput = $('js-body-input').val();
   $('.card-box').append(
     `<section class="idea-card">
-    <h1> "${$titleInput}" </h1>
+    <li> "${$titleInput}" </li>
     <button class="delete-btn">&#xd7;</button>
-    <p> "${$bodyInput}" </p>
+    <li> "${$bodyInput}" <li>
     <button class="up-btn">&#x2191;</button>
     <button class="down-btn">&#x2193;</button>
-    <h2>quality:swill</h2>
+    <li>quality:swill</li>
   </section>`
   );
 }
