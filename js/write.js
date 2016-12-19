@@ -50,6 +50,7 @@ function NewIdea (title, body, id, quality){
 // }
 
 
+>>>>>>> master
 
 
 
@@ -83,4 +84,18 @@ function NewIdea (title, body, id, quality){
 //     <li>quality:swill</li>
 //   </section>`
 //   );
+// }
+
+// function localArray(){
+//   var $titleInput = $('.js-title-input').val();
+//   var $bodyInput = $('.js-body-input').val();
+//   var $formData = [];
+//   $formData.push($titleInput);
+//   $formData.push($bodyInput);
+// }
+//
+// function localSavedData(){
+//   var stored = localStorage.setItem('$form-data', JSON.stringify($formData));
+//     console.log(stored);
+//
 // }

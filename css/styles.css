@@ -9,7 +9,7 @@ body {
 h1 {
   font-size:3em;
   color:#6D6E71;
-  padding-bottom:30px;
+  margin-left: 35%;
 }
 
 span {
@@ -23,23 +23,32 @@ span {
   align-items:center
 }
 
+.main-content{
+  margin-top: 70px;
+}
+
 input {
-  display: block;
+  margin-top: 20px;
+  font-size: 1.5em;
+  width:100%;
 }
 
 .title-input {
-  width: 100%;
+
 }
 
 .body-input {
-  width: 100%
+
 }
 
 .save-btn {
   width: 100%;
+  margin-top: 30px;
+  font-size: 1.5em;
   background-color: #00A79D;
   border: none;
   color: white;
+
 }
 
 /* Bottom section content */
