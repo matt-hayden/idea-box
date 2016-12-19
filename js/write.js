@@ -1,17 +1,13 @@
 $('.js-save-btn').on('click', function(){
-  localData();
+  localArray();
 });
 
-function localData(){
-  var $titleInput = $('.js-title-input').val();
-  var $bodyInput = $('.js-body-input').val();
-  var $formData = [];
-  $formData.push($titleInput);
-  $formData.push($bodyInput);
-  console.log($formData);
-}
-
-
+function NewIdea(title, body, id, quality){
+  this.title = title;
+  this.body = body;
+  this.id = id;
+  this.quality ="swill";
+};
 
 
 
@@ -22,12 +18,6 @@ function localData(){
 
 // Function to create object with all the information
 //
-// function NewIdea(title, body, id, quality){
-//   this.title = title;
-//   this.body = body;
-//   this.id = id;
-//   this.quality ="swill";
-// };
 
 // Function to get value of each:
 //
@@ -50,4 +40,18 @@ function localData(){
 //     <li>quality:swill</li>
 //   </section>`
 //   );
+// }
+
+// function localArray(){
+//   var $titleInput = $('.js-title-input').val();
+//   var $bodyInput = $('.js-body-input').val();
+//   var $formData = [];
+//   $formData.push($titleInput);
+//   $formData.push($bodyInput);
+// }
+//
+// function localSavedData(){
+//   var stored = localStorage.setItem('$form-data', JSON.stringify($formData));
+//     console.log(stored);
+//
 // }
