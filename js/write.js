@@ -1,10 +1,3 @@
-$(document).ready(function() {
-  for (var i = 0; i < localStorage.length; i++){
-    displayCard(localStorage.key(i));
-    console.log('shit')
-  }
-})
-
 $('.js-save-btn').on('click', function(){
   var $titleInput = $('.js-title-input').val();
   var $bodyInput = $('.js-body-input').val();
@@ -30,23 +23,6 @@ function loadIdeas (id){
   localStorage.getItem(id, JSON.parse(idea));
   console.log(id, idea);
 }
-
-
-// var retrievedData = localStorage.getItem("card-data");
-// console.log(retrievedData);
-// var winning = JSON.parse(retrievedData);
-// console.log(winning);
-
-// this.title = $('.js-title-input').val();
-// this.body = $('.js-body-input').val();
-// this.id = Date.now();
-// this.quality ="swill";
-// var $formData = [];
-//  $formData.push(this.title);
-//  $formData.push(this.body);
-//  $formData.push(this.id);
-//  $formData.push(this.quality);
-
 
 function displayCard (idea){
   $('.card-section').append(
@@ -77,61 +53,3 @@ function clearInputs(){
    $('.js-title-input').val('');
    $('.js-body-input').val('');
 };
-
-// function StoreIdea (title, body, id, quality){
-//   var $formData = [];
-//
-//
-//   var stringed = $formData;
-//
-//   localStorage.setItem("card-data", JSON.stringify(stringed));
-//
-//   var retrievedData = localStorage.getItem("card-data");
-//
-//   var winning = JSON.parse(retrievedData);
-//   console.log(winning);
-//
-//
-// };
-//
-//
-
-//
-// function localData(){
-//   var $titleInput = $('.js-title-input').val();
-//   var $bodyInput = $('.js-body-input').val();
-//   var $formData = [];
-//   $formData.push($titleInput);
-//   $formData.push($bodyInput);
-// }
-
-  // var formData = JSON.stringify($("#form-data").serializeArray());
-  //
-
-
-// Function to create object with all the information
-//
-// Function to get value of each:
-//
-// Function to stringify JSON.stringify($titleInput);:
-//
-// Function to set item localStorage.setItem():
-//
-// Function to parse JSON.parse()
-//
-
-
-
-// function localArray(){
-//   var $titleInput = $('.js-title-input').val();
-//   var $bodyInput = $('.js-body-input').val();
-//   var $formData = [];
-//   $formData.push($titleInput);
-//   $formData.push($bodyInput);
-// }
-//
-// function localSavedData(){
-//   var stored = localStorage.setItem('$form-data', JSON.stringify($formData));
-//     console.log(stored);
-//
-// }
