@@ -5,20 +5,21 @@ $('.js-save-btn').on('click', function(){
   NewIdea();
   displayCard($idea);
   StoreIdea();
+  clearInputs();
 });
 
-function NewIdea (title, body, id, quality){
+function NewIdea (title, body){
   this.title = title;
   this.body = body;
   this.id = Date.now();
-  this.quality =" swill"; //or quality?
+  this.quality ="swill"; //or quality?
 }
 
 function StoreIdea (title, body, id, quality){
   this.title = $('.js-title-input').val();
   this.body = $('.js-body-input').val();
   this.id = Date.now();
-  this.quality =" swill"; //or quality?
+  this.quality ="swill"; //or quality?
   var $formData = [];
    $formData.push(this.title);
    $formData.push(this.body);
@@ -30,18 +31,17 @@ function StoreIdea (title, body, id, quality){
 
    var retrievedData = localStorage.getItem("card-data");
    console.log(retrievedData);
+
    var winning = JSON.parse(retrievedData);
    console.log(winning);
 };
 
-
 function displayCard (idea){
-  $('.card-box').append(
+  $('.card-box').prepend(
     `<section class="idea-card">
     <li> "${idea.title}" </li>
     <button class="delete-btn">&#xd7;</button>
     <li> "${idea.body}" </li>
-    <li> "${idea.id}" </li>
     <li> "${idea.quality}"
     <button class="up-btn">&#x2191;</button>
     <button class="down-btn">&#x2193;</button>
@@ -50,9 +50,17 @@ function displayCard (idea){
   );
 }
 
+// Use delete button to remove card
+$('.card-section').on('click', '.delete-btn', function(){
+  $(this).closest('section').remove();
+  console.log('delete')
+});
 
-
-
+// Clear input fields after event listener on button save
+function clearInputs(){
+   $('.js-title-input').val('');
+   $('.js-body-input').val('');
+};
 
 // function StoreIdea (title, body, id, quality){
 //   var $formData = [];
