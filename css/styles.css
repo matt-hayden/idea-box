@@ -24,7 +24,7 @@ span {
 }
 
 .main-content{
-  padding-top: 50px;
+  padding-top: 5%;
 }
 
 input {
@@ -56,10 +56,11 @@ input {
 
 /* Bottom section content */
 
-.card-section {
+.card-box {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 
@@ -69,6 +70,7 @@ input {
  flex-direction: column;
  justify-content: center;
  align-items: center;
+ width: 100%;
 }
 
 .search-input {
@@ -80,8 +82,8 @@ input {
 
 }
 .idea-card {
-  border: 1px solid grey;
-  height: 40%;
+  border: 1px solid magenta;
+  height: 100%;
   width: 82%;
   margin-bottom: 4%
 
@@ -93,8 +95,4 @@ input {
     color: white;
     height: 10px;
     width: 10px;
-}
-
-li {
-  
 }

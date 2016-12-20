@@ -1,10 +1,17 @@
+$(document).ready(function() {
+  for (var i = 0; i < localStorage.length; i++){
+    displayCard(localStorage.key(i));
+    console.log('shit')
+  }
+})
+
 $('.js-save-btn').on('click', function(){
   var $titleInput = $('.js-title-input').val();
   var $bodyInput = $('.js-body-input').val();
   var $idea = new NewIdea($titleInput, $bodyInput);
   NewIdea();
   displayCard($idea);
-  StoreIdea();
+  StoreIdea(id, $idea);
   clearInputs();
 });
 
@@ -12,33 +19,37 @@ function NewIdea (title, body){
   this.title = title;
   this.body = body;
   this.id = Date.now();
-  this.quality ="swill"; //or quality?
+  this.quality ="swill";
 }
 
-function StoreIdea (title, body, id, quality){
-  this.title = $('.js-title-input').val();
-  this.body = $('.js-body-input').val();
-  this.id = Date.now();
-  this.quality ="swill"; //or quality?
-  var $formData = [];
-   $formData.push(this.title);
-   $formData.push(this.body);
-   $formData.push(this.id);
-   $formData.push(this.quality);
-   var storedString = $formData;
-
-   $formData = localStorage.setItem("card-data", JSON.stringify(storedString));
-
-   var retrievedData = localStorage.getItem("card-data");
-   console.log(retrievedData);
-
-   var winning = JSON.parse(retrievedData);
-   console.log(winning);
+function StoreIdea (id, idea){
+   localStorage.setItem(id, JSON.stringify(idea));
 };
 
-function displayCard (idea){
+function loadIdeas (id){
+  localStorage.getItem(id, JSON.parse(idea));
+  console.log(id, idea);
+}
 
-  $('.card-box').prepend(
+
+// var retrievedData = localStorage.getItem("card-data");
+// console.log(retrievedData);
+// var winning = JSON.parse(retrievedData);
+// console.log(winning);
+
+// this.title = $('.js-title-input').val();
+// this.body = $('.js-body-input').val();
+// this.id = Date.now();
+// this.quality ="swill";
+// var $formData = [];
+//  $formData.push(this.title);
+//  $formData.push(this.body);
+//  $formData.push(this.id);
+//  $formData.push(this.quality);
+
+
+function displayCard (idea){
+  $('.card-section').append(
     `<section class="idea-card">
     <li> "${idea.title}" </li>
     <button class="delete-btn">&#xd7;</button>
