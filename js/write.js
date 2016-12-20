@@ -1,10 +1,3 @@
-$(document).ready(function() {
-  for (var i = 0; i < localStorage.length; i++){
-    displayCard(localStorage.key(i));
-    console.log('shit')
-  }
-})
-
 $('.js-save-btn').on('click', function(){
   var $titleInput = $('.js-title-input').val();
   var $bodyInput = $('.js-body-input').val();
