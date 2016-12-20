@@ -1,44 +1,65 @@
 $('.js-save-btn').on('click', function(){
-  NewIdea();
-});
-
-function NewIdea (title, body, id, quality){
   var $titleInput = $('.js-title-input').val();
   var $bodyInput = $('.js-body-input').val();
-  var $cardId = (Date.now());
-  var $quality = ("swill");
-  var $formData = [];
-  $formData.push($titleInput);
-  $formData.push($bodyInput);
-  $formData.push($cardId);
-  $formData.push($quality);
+  var $idea = new NewIdea($titleInput, $bodyInput);
+  console.log($idea);
+  NewIdea();
+  displayCard($idea);
+});
 
-  var stringed = $formData;
-
-  localStorage.setItem("card-data", JSON.stringify(stringed));
-
-  var retrievedData = localStorage.getItem("card-data");
-
-  var winning = JSON.parse(retrievedData);
-  console.log(winning);
+// function StoreIdea (title, body){
+//   var $cardId = (Date.now());
+//   var $quality = ("swill");
+//   var $idea = new NewIdea($titleInput, $bodyInput, $cardId, $quality);
+//   console.log($idea);
+// };
 
 
-};
+function NewIdea (title, body, id, quality){
+  this.title = title;
+  this.body = body;
+  this.id = Date.now();
+  this.quality ="swill"; //or quality?
+}
+
+function displayCard (idea){
+  $('.card-box').append(
+    `<section class="idea-card">
+    <li> "${idea.title}" </li>
+    <button class="delete-btn">&#xd7;</button>
+    <li> "${idea.body}" </li>
+    <li> "${idea.id}" </li>
+    <li> "${idea.quality}"
+    <button class="up-btn">&#x2191;</button>
+    <button class="down-btn">&#x2193;</button>
+    <li>quality:swill</li>
+  </section>`
+  );
+}
 
 
+// function StoreIdea (title, body, id, quality){
+//   var $formData = [];
+//   $formData.push($titleInput);
+//   $formData.push($bodyInput);
+//   $formData.push($cardId);
+//   $formData.push($quality);
+//
+//   var stringed = $formData;
+//
+//   localStorage.setItem("card-data", JSON.stringify(stringed));
+//
+//   var retrievedData = localStorage.getItem("card-data");
+//
+//   var winning = JSON.parse(retrievedData);
+//   console.log(winning);
+//
+//
+// };
+//
+//
 
 
-
-
-
-
-
-
-
-// this.title = title;
-// this.body = body;
-// this.id = id;
-// this.quality ="swill";
 
 //
 // function localData(){
@@ -49,8 +70,6 @@ function NewIdea (title, body, id, quality){
 //   $formData.push($bodyInput);
 // }
 
-
->>>>>>> master
 
 
 
@@ -72,19 +91,6 @@ function NewIdea (title, body, id, quality){
 //
 
 
-// function newIdea(){
-//   $('.card-box').append(
-//     `<section class="idea-card">
-//     <li> "${$titleInput}" </li>
-//     <button class="delete-btn">&#xd7;</button>
-//     <li> "${$bodyInput}" </li>
-//     <li> "${$cardId}" </li>
-//     <button class="up-btn">&#x2191;</button>
-//     <button class="down-btn">&#x2193;</button>
-//     <li>quality:swill</li>
-//   </section>`
-//   );
-// }
 
 // function localArray(){
 //   var $titleInput = $('.js-title-input').val();
