@@ -7,12 +7,12 @@ $('.js-save-btn').on('click', function(){
   displayCard($idea);
 });
 
-function StoreIdea (title, body){
-  var $cardId = (Date.now());
-  var $quality = ("swill");
-  var $idea = new NewIdea($titleInput, $bodyInput, $cardId, $quality);
-  console.log($idea);
-};
+// function StoreIdea (title, body){
+//   var $cardId = (Date.now());
+//   var $quality = ("swill");
+//   var $idea = new NewIdea($titleInput, $bodyInput, $cardId, $quality);
+//   console.log($idea);
+// };
 
 
 function NewIdea (title, body, id, quality){
