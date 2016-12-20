@@ -1,10 +1,17 @@
 body {
+  height:100vh;
   border: 1px solid;
   font-family: 'Roboto Slab';
-  margin-bottom: 2px;
 }
-
 /* Top box content */
+
+.main {
+  display: flex;
+  height: 50%;
+  background-color: #E5F3F2;
+  justify-content:center;
+  align-items:center;
+}
 
 h1 {
   font-size:3em;
@@ -15,13 +22,7 @@ h1 {
 span {
   color:#00A79D;
 }
-.main {
-  display: flex;
-  height: 50%;
-  background-color: #E5F3F2;
-  justify-content:center;
-  align-items:center;
-}
+
 
 .main-content{
   padding-top: 5%;
@@ -31,14 +32,6 @@ input {
   margin-top: 4%;
   font-size: 1.5em;
   width:100%;
-}
-
-.title-input {
-
-}
-
-.body-input {
-
 }
 
 .save-btn {
