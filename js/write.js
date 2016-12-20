@@ -1,4 +1,9 @@
 $('.js-save-btn').on('click', function(){
+
+  NewIdea();
+});
+
+function NewIdea (title, body, id, quality){
   var $titleInput = $('.js-title-input').val();
   var $bodyInput = $('.js-body-input').val();
   var $cardId = (Date.now());
@@ -62,8 +67,6 @@ function NewIdea (title, body, id, quality){
 //   $formData.push($titleInput);
 //   $formData.push($bodyInput);
 // }
-
-
 
 
 
