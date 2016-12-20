@@ -1,7 +1,7 @@
 body {
   border: 1px solid;
-  height: 100vh;
   font-family: 'Roboto Slab';
+  margin-bottom: 2px;
 }
 
 /* Top box content */
@@ -28,7 +28,7 @@ span {
 }
 
 input {
-  margin-top: 20px;
+  margin-top: 4%;
   font-size: 1.5em;
   width:100%;
 }
@@ -48,7 +48,10 @@ input {
   background-color: #00A79D;
   border: none;
   color: white;
-
+  margin-bottom: 5%;
+}
+.save-btn:hover {
+  background-color: #045E55;
 }
 
 /* Bottom section content */
@@ -56,14 +59,42 @@ input {
 .card-section {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+
+/*Generated Cards*/
+.card-section {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
 }
 
 .search-input {
-  margin-top: 20px;
-  width: 100%
+  margin-top: 4%;
+  width: 100%;
+  margin-right: 250px;
+  margin-bottom: 4%;
+
+
+}
+.idea-card {
+  border: 1px solid grey;
+  height: 40%;
+  width: 82%;
+  margin-bottom: 4%
+
 }
 
-.idea-card {
-  height: 100px;
-  width: 100px;
+.delete-btn {
+    border-radius: 50%;
+    background-color: #D1D2D4;
+    color: white;
+    height: 10px;
+    width: 10px;
+}
+
+li {
+  
 }

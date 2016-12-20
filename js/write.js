@@ -37,15 +37,20 @@ function StoreIdea (title, body, id, quality){
 };
 
 function displayCard (idea){
+
   $('.card-box').prepend(
     `<section class="idea-card">
     <li> "${idea.title}" </li>
     <button class="delete-btn">&#xd7;</button>
+    <ul class="card-box">
     <li> "${idea.body}" </li>
+    <li> "${idea.id}" </li>
+    <li> "${idea.quality}"</li>
     <li> "${idea.quality}"
     <button class="up-btn">&#x2191;</button>
     <button class="down-btn">&#x2193;</button>
-    <li>quality:swill</li>
+    <li>quality: swill</li>
+    </li>
   </section>`
   );
 }
