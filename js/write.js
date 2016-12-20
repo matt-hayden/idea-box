@@ -12,14 +12,14 @@ function NewIdea (title, body){
   this.title = title;
   this.body = body;
   this.id = Date.now();
-  this.quality ="swill"; //or quality?
+  this.quality ="swill";
 }
 
 function StoreIdea (title, body, id, quality){
   this.title = $('.js-title-input').val();
   this.body = $('.js-body-input').val();
   this.id = Date.now();
-  this.quality ="swill"; //or quality?
+  this.quality ="swill";
   var $formData = [];
    $formData.push(this.title);
    $formData.push(this.body);
@@ -38,7 +38,7 @@ function StoreIdea (title, body, id, quality){
 
 function displayCard (idea){
 
-  $('.card-box').prepend(
+  $('.card-section').prepend(
     `<section class="idea-card">
     <li> "${idea.title}" </li>
     <button class="delete-btn">&#xd7;</button>
