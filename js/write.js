@@ -1,3 +1,15 @@
+var localDataArray = [];
+
+$(function() {
+  for (var i = 0; i < localStorage.length; i++)
+    localDataArray.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
+    console.log(localDataArray);
+});
+
+  for (var i = 0; i < localStorage.length; i++){
+    $('.card-section').prepend(localDataArray[i]);
+}
+
 $('.js-save-btn').on('click', function(){
   var $titleInput = $('.js-title-input').val();
   var $bodyInput = $('.js-body-input').val();
@@ -19,37 +31,65 @@ function StoreIdea (id, idea){
    localStorage.setItem(id, JSON.stringify(idea));
 };
 
-function loadIdeas (id){
-  localStorage.getItem(id, JSON.parse(idea));
-  console.log(id, idea);
-}
+// function loadIdeas (id){
+//   localStorage.getItem(id, JSON.parse(idea));
+//   console.log(id, idea);
+// }
 
 function displayCard (idea){
-  $('.card-section').append(
+  $('.card-section').prepend(
     `<section class="idea-card">
     <li> "${idea.title}" </li>
     <button class="delete-btn">&#xd7;</button>
     <ul class="card-box">
     <li> "${idea.body}" </li>
-    <li> "${idea.id}" </li>
+    <li id="key-number"> "${idea.id}" </li>
     <li> "${idea.quality}"</li>
-    <li> "${idea.quality}"
     <button class="up-btn">&#x2191;</button>
     <button class="down-btn">&#x2193;</button>
-    <li>quality: swill</li>
     </li>
   </section>`
   );
 }
 
-// Use delete button to remove card
 $('.card-section').on('click', '.delete-btn', function(){
   $(this).closest('section').remove();
-  console.log('delete')
+   var id = $(this).parent().attr("id")
+   localStorage.removeItem(id);
 });
 
-// Clear input fields after event listener on button save
 function clearInputs(){
-   $('.js-title-input').val('');
-   $('.js-body-input').val('');
+  $('.js-title-input').val('');
+  $('.js-body-input').val('');
 };
+
+
+
+//
+// $(this).parent().remove();
+//  var id = $(this).parent().attr("id")
+//  localStorage.removeItem(id);
+
+
+// function deleteLocalStorage (){
+//   localStorage.removeItem($idea);
+//   deleteLocalStorage();
+
+// $('.js-title-input, .js-body-input').keyup(function(){
+//  var $title = $('.js-title-input').val();
+//  var $url = $('.js-body-input').val();
+//    if (title && url){
+//      $('.js-save-btn').attr('disabled', false);
+//    } else {
+//      $('.js-save-btn').attr('disabled', true);
+//    }
+// });
+// };
+
+// $('.idea-card').on('click', '.delete-btn', function(){
+//   $(this).closest('#key-number').remove();
+// });
+
+// Use delete button to remove card
+
+// Clear input fields after event listener on button save
