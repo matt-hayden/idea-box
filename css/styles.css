@@ -1,16 +1,48 @@
-/*Main layout*/
+/*Universals*/
 
 body {
   height:100vh;
   font-family: 'Open Sans', sans-serif;
 }
 
+h1 {
+  margin-left: 35%;
+  font-family: 'Roboto Sans';
+  font-weight: 700;
+  font-size:3em;
+  color:#6D6E71;
+}
+
+span {
+  color:#00A79D;
+}
+
+input {
+  margin-top: 4%;
+  width:100%;
+  font-family: 'Open Sans';
+  font-size: 1.5em;
+}
+
+li {
+  padding:10px;
+  font-family: 'Open Sans';
+}
+
+button {
+  width:40px;
+  background: transparent;
+  border:none;
+}
+
+/*Main layout*/
+
 .main {
   display: flex;
   height: 50%;
-  background-color: #E5F3F2;
   justify-content:center;
   align-items:center;
+  background-color: #E5F3F2;
 }
 
 .search-section {
@@ -31,34 +63,16 @@ body {
   padding-top: 5%;
 }
 
-h1 {
-  font-family: 'Roboto Sans';
-  font-weight: 700;
-  font-size:3em;
-  color:#6D6E71;
-  margin-left: 35%;
-}
-
-span {
-  color:#00A79D;
-}
-
-input {
-  font-family: 'Open Sans';
-  margin-top: 4%;
-  font-size: 1.5em;
-  width:100%;
-}
-
 .save-btn {
-  font-family: 'Open Sans';
-  width: 100%;
   margin-top: 30px;
-  font-size: 1.5em;
-  background-color: #00A79D;
-  border: none;
-  color: white;
   margin-bottom: 5%;
+  border: none;
+  width: 100%;
+  background-color: #00A79D;
+  font-family: 'Open Sans';
+  font-size: 1.5em;
+  color: white;
+
 }
 .save-btn:hover {
   background-color: #045E55;
@@ -68,29 +82,19 @@ input {
 
 .search-input {
   margin-top: 4%;
-  width: 100%;
   margin-right: 250px;
   margin-bottom: 4%;
+  width: 100%;
+
 }
 
 /*Content in .card-section*/
 
 .idea-card {
-  border-bottom: 2px solid #D1D3D4;
-  width: 65%;
-  padding: 10px;
   margin-bottom: 4%;
-  font-family: 'Open Sans';
-}
-
-/*.bookmark {
-  margin: 5%;
-  border: 2px solid #607D8B;
-  width: 90%;
-  background-color: white;
-}*/
-li {
-  padding:10px;
+  border-bottom: 2px solid #D1D3D4;
+  padding: 10px;
+  width: 65%;
   font-family: 'Open Sans';
 }
 
@@ -107,6 +111,7 @@ li {
 
 .li-body {
   color: #939598;
+  line-height: 150%;
 }
 
 .li-id {
@@ -120,7 +125,6 @@ li {
 
 .up-btn {
   margin-left: 10px;
-  margin-right: 15px;
 }
 
 #key-number {
