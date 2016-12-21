@@ -1,26 +1,61 @@
+
+/* Unless I'm wrong, this array is used to store strings that are later synced to localStorage... why?
+ * why not read and write straight to localStorage?
+ */
 var localDataArray = [];
-
-
-$(function() {
+/* Here's how to use it:
+ */
+function populateFromStorage() {
+  /* Without the { } brackets, the for loop only loops over the next line. I changed the indents
+   */
   for (var i = 0; i < localStorage.length; i++)
-    localDataArray.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
-    console.log(localDataArray);
-});
+    localDataArray.push( JSON.parse(localStorage.getItem(localStorage.key(i))) );
+  debug_log("synced from localStorage: "+localDataArray);
+};
+/* ... but I don't see it used in the rest of this script
+ */
 
-// for (var i = 0; i < localStorage.length; i++){
-//       $('.card-section').prepend(localDataArray[i]);
-// }
+
+// This pattern is common:
+debug_log = console.log
+// You can turn off or change logging without having to go through the rest of the file
+
+
+/* I like these 'wrapper' functions:
+ */
+function getIdea(name, parser=JSON.parse) {
+  return parser(localStorage.getItem(name);
+}
+function setIdea(name, content, flattener=JSON.stringify) {
+  localStorage.setItem(name, flattener(content));
+}
+function *getIdeas() {
+  var n;
+  for (var i = 0; i < localStorage.length; i++) {
+    n = localStorage.key(i);
+    if (n) yield [ n, getIdea(n) ];
+  }
+}
+function debugIdeas() {
+  for (var t of getIdeas())
+    debug_log(t);
+}
+
+/* I'm specifying the function above _as a function argument_, I'm not calling it.
+ */
+$(populateFromStorage);
+
 
 $('.card-section').on('click', '.delete-btn', function(){
   $(this).closest('section').remove();
   // localStorage.removeItem(id);
-  // console.log(id);
+  // debug_log(id);
 });
 
 $('.card-section').on('click', '.delete-btn', function(){
   // $(this).siblings().attr('id');
   localStorage.removeItem(id);
-  console.log(id);
+  debug_log("Removed localStorage "+id);
 });
 
 
@@ -28,7 +63,7 @@ $('.js-save-btn').on('click', function(){
   var $titleInput = $('.js-title-input').val();
   var $bodyInput = $('.js-body-input').val();
   var $idea = new NewIdea($titleInput, $bodyInput);
-  NewIdea();
+  //NewIdea();
   displayCard($idea);
   StoreIdea(id, $idea);
   clearInputs();
