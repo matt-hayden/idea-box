@@ -7,7 +7,7 @@ $(function() {
 });
 
   for (var i = 0; i < localStorage.length; i++){
-    $('.card-section').prepend(localDataArray[i]);
+      $('.card-section').prepend(localDataArray[i]);
 }
 
 $('.js-save-btn').on('click', function(){
