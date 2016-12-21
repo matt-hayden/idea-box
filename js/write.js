@@ -7,9 +7,22 @@ $(function() {
     console.log(localDataArray);
 });
 
-  for (var i = 0; i < localStorage.length; i++){
-      $('.card-section').prepend(localDataArray[i]);
-}
+// for (var i = 0; i < localStorage.length; i++){
+//       $('.card-section').prepend(localDataArray[i]);
+// }
+
+$('.card-section').on('click', '.delete-btn', function(){
+  $(this).closest('section').remove();
+  // localStorage.removeItem(id);
+  // console.log(id);
+});
+
+$('.card-section').on('click', '.delete-btn', function(){
+  // $(this).siblings().attr('id');
+  localStorage.removeItem(id);
+  console.log(id);
+});
+
 
 $('.js-save-btn').on('click', function(){
   var $titleInput = $('.js-title-input').val();
@@ -32,16 +45,11 @@ function StoreIdea (id, idea){
    localStorage.setItem(id, JSON.stringify(idea));
 };
 
-// function loadIdeas (id){
-//   localStorage.getItem(id, JSON.parse(idea));
-//   console.log(id, idea);
-// }
-
 function displayCard (idea){
   /* Tick marks `` are EMCA templates
    */
   $('.card-section').prepend(
-  `<section class="idea-card">
+    `<section id="${idea.id}" class="idea-card">
     <ul class="card-box">
     <li class="li-title"> ${idea.title} </li>
     <button class="delete-btn"><img src="images/delete.svg" alt="X"/></button>
@@ -54,12 +62,6 @@ function displayCard (idea){
   </section>`
   );
 }
-
-$('.card-section').on('click', '.delete-btn', function(){
-  $(this).closest('section').remove();
-   var id = $(this).parent().attr("id")
-   localStorage.removeItem(id);
-});
 
 function clearInputs(){
   $('.js-title-input').val('');
