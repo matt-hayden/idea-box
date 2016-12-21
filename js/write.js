@@ -6,7 +6,7 @@ $(function() {
     console.log(localDataArray);
 });
 
-  for (var i = 0; i < localStorage.length; i++){
+for (var i = 0; i < localStorage.length; i++){
       $('.card-section').prepend(localDataArray[i]);
 }
 
@@ -48,7 +48,10 @@ function displayCard (idea){
 }
 
 $('.card-section').on('click', '.delete-btn', function(){
-  $(this).closest('section').remove();
+  var id = $(this).siblings('#key-number').text();
+  localStorage.removeItem(id);
+  // $(this).closest('section').remove();
+  console.log(id);
 });
 
 function clearInputs(){
