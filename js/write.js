@@ -1,19 +1,9 @@
-
-/* Unless I'm wrong, this array is used to store strings that are later synced to localStorage... why?
- * why not read and write straight to localStorage?
- */
-var localDataArray = [];
-/* Here's how to use it:
- */
 function populateFromStorage() {
-  /* Without the { } brackets, the for loop only loops over the next line. I changed the indents
-   */
-  for (var i = 0; i < localStorage.length; i++)
-    localDataArray.push( JSON.parse(localStorage.getItem(localStorage.key(i))) );
-  debug_log("synced from localStorage: "+localDataArray);
+  for (var i = 0; i < localStorage.length; i++) {
+    var storedObj = JSON.parse(localStorage.getItem(localStorage.key(i)));
+    displayCard(storedObj);
+  }
 };
-/* ... but I don't see it used in the rest of this script
- */
 
 
 // This pattern is common:
@@ -24,8 +14,12 @@ debug_log = console.log
 /* I like these 'wrapper' functions:
  */
 function getIdea(name, parser=JSON.parse) {
-  return parser(localStorage.getItem(name);
+  return parser(localStorage.getItem(name));
 }
+function removeIdea(name) {
+  localStorage.removeItem(name);
+}
+// This replaced StoreIdea
 function setIdea(name, content, flattener=JSON.stringify) {
   localStorage.setItem(name, flattener(content));
 }
@@ -37,8 +31,7 @@ function *getIdeas() {
   }
 }
 function debugIdeas() {
-  for (var t of getIdeas())
-    debug_log(t);
+  for (var t of getIdeas()) debug_log(t);
 }
 
 /* I'm specifying the function above _as a function argument_, I'm not calling it.
@@ -47,26 +40,23 @@ $(populateFromStorage);
 
 
 $('.card-section').on('click', '.delete-btn', function(){
-  $(this).closest('section').remove();
-  // localStorage.removeItem(id);
-  // debug_log(id);
+  var title = $(this).closest(".idea-card").attr("card_title");
+  if (title) {
+    removeIdea(title);
+    $(this).closest('.idea-card').remove();
+    debug_log("Removed localStorage "+title);
+  } else debug_log("Boo: .idea-card contained no title");
 });
-
-$('.card-section').on('click', '.delete-btn', function(){
-  // $(this).siblings().attr('id');
-  localStorage.removeItem(id);
-  debug_log("Removed localStorage "+id);
-});
-
 
 $('.js-save-btn').on('click', function(){
   var $titleInput = $('.js-title-input').val();
   var $bodyInput = $('.js-body-input').val();
   var $idea = new NewIdea($titleInput, $bodyInput);
-  //NewIdea();
-  displayCard($idea);
-  StoreIdea(id, $idea);
-  clearInputs();
+  if ($titleInput) {
+    displayCard($idea);
+    setIdea($titleInput, $idea);
+    clearInputs();
+  } else debug_log("Boo: won't save without a title");
 });
 
 function NewIdea (title, body, quality){
@@ -76,15 +66,12 @@ function NewIdea (title, body, quality){
   this.quality = quality || 'Swill';
 }
 
-function StoreIdea (id, idea){
-   localStorage.setItem(id, JSON.stringify(idea));
-};
 
 function displayCard (idea){
   /* Tick marks `` are EMCA templates
    */
   $('.card-section').prepend(
-    `<section id="${idea.id}" class="idea-card">
+    `<section id="${idea.id}" class="idea-card" card_title="${idea.title}">
     <ul class="card-box">
     <li class="li-title"> ${idea.title} </li>
     <button class="delete-btn"><img src="images/delete.svg" alt="X"/></button>
@@ -102,34 +89,3 @@ function clearInputs(){
   $('.js-title-input').val('');
   $('.js-body-input').val('');
 };
-
-
-
-//
-// $(this).parent().remove();
-//  var id = $(this).parent().attr("id")
-//  localStorage.removeItem(id);
-
-
-// function deleteLocalStorage (){
-//   localStorage.removeItem($idea);
-//   deleteLocalStorage();
-
-// $('.js-title-input, .js-body-input').keyup(function(){
-//  var $title = $('.js-title-input').val();
-//  var $url = $('.js-body-input').val();
-//    if (title && url){
-//      $('.js-save-btn').attr('disabled', false);
-//    } else {
-//      $('.js-save-btn').attr('disabled', true);
-//    }
-// });
-// };
-
-// $('.idea-card').on('click', '.delete-btn', function(){
-//   $(this).closest('#key-number').remove();
-// });
-
-// Use delete button to remove card
-
-// Clear input fields after event listener on button save
