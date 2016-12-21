@@ -1,5 +1,6 @@
 var localDataArray = [];
 
+
 $(function() {
   for (var i = 0; i < localStorage.length; i++)
     localDataArray.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
@@ -37,17 +38,19 @@ function StoreIdea (id, idea){
 // }
 
 function displayCard (idea){
+  /* Tick marks `` are EMCA templates
+   */
   $('.card-section').prepend(
-    `<section class="idea-card">
+  `<section class="idea-card">
     <ul class="card-box">
     <li class="li-title"> ${idea.title} </li>
-    <button class="delete-btn"><img src="images/delete.svg"> </img></button>
+    <button class="delete-btn"><img src="images/delete.svg" alt="X"/></button>
     <li class="li-body">"${idea.body}"</li>
     <li id="key-number" class="li-id">"${idea.id}"</li>
-    <button class="up-btn"><img src="images/upvote.svg"></img></button>
-    <button class="down-btn"><img src="images/downvote.svg"></img></button>
+    <button class="up-btn"><img src="images/upvote.svg" alt="^"/></button>
+    <button class="down-btn"><img src="images/downvote.svg" alt="v"/></button>
     <li class="li-quality">"quality:${idea.quality}"</li>
-    </ui>
+    </ul>
   </section>`
   );
 }
