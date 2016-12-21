@@ -1,8 +1,9 @@
+/*Main layout*/
+
 body {
   height:100vh;
   font-family: 'Roboto Slab';
 }
-/* Top box content */
 
 .main {
   display: flex;
@@ -10,6 +11,24 @@ body {
   background-color: #E5F3F2;
   justify-content:center;
   align-items:center;
+}
+
+.search-section {
+  display:flex;
+  justify-content: center;
+}
+
+.card-section {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+
+/*Content in .main*/
+
+.main-content{
+  padding-top: 5%;
 }
 
 h1 {
@@ -20,11 +39,6 @@ h1 {
 
 span {
   color:#00A79D;
-}
-
-
-.main-content{
-  padding-top: 5%;
 }
 
 input {
@@ -46,44 +60,23 @@ input {
   background-color: #045E55;
 }
 
-/* Bottom section content */
-
-/*.card-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}*/
-
-
-/*Generated Cards*/
-.card-section {
- display: flex;
- flex-direction: column;
- justify-content: center;
- align-items: center;
-
-}
+/*Content in .search-section*/
 
 .search-input {
   margin-top: 4%;
   width: 100%;
   margin-right: 250px;
   margin-bottom: 4%;
-
-
 }
+
+/*Content in .card-section*/
+
 .idea-card {
   border-bottom: 1px solid #D1D3D4;
   height: 100%;
   width: 70%;
   padding: 10px;
   margin-bottom: 4%;
-
-}
-
-.delete-btn {
-
 }
 
 .li-title {
