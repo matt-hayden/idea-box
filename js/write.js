@@ -39,9 +39,9 @@ function displayCard (idea){
     <button class="delete-btn"><img src="images/delete.svg"> </img></button>
     <li class="li-body">"${idea.body}"</li>
     <li id="key-number" class="li-id">"${idea.id}"</li>
-    <li class="li-quality">"${idea.quality}"</li>
     <button class="up-btn"><img src="images/upvote.svg"></img></button>
     <button class="down-btn"><img src="images/downvote.svg"></img></button>
+    <li class="li-quality">"quality:${idea.quality}"</li>
     </ui>
   </section>`
   );
