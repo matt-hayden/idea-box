@@ -7,7 +7,7 @@ $(function() {
 });
 
   for (var i = 0; i < localStorage.length; i++){
-    $('.card-section').prepend(localDataArray[i]);
+      $('.card-section').prepend(localDataArray[i]);
 }
 
 $('.js-save-btn').on('click', function(){
@@ -40,7 +40,6 @@ function displayCard (idea){
   $('.card-section').prepend(
     `<section class="idea-card">
     <ul class="card-box">
-<<<<<<< HEAD
     <li class="li-title"> ${idea.title} </li>
     <button class="delete-btn"><img src="images/delete.svg"> </img></button>
     <li class="li-body">"${idea.body}"</li>
@@ -49,14 +48,6 @@ function displayCard (idea){
     <button class="up-btn"><img src="images/upvote.svg"></img></button>
     <button class="down-btn"><img src="images/downvote.svg"></img></button>
     </ui>
-=======
-    <li> "${idea.body}" </li>
-    <li id="key-number"> "${idea.id}" </li>
-    <li> "${idea.quality}"</li>
-    <button class="up-btn">&#x2191;</button>
-    <button class="down-btn">&#x2193;</button>
-    </li>
->>>>>>> 4dda91235b1bac5228809219ce0100fbc42b7a86
   </section>`
   );
 }
